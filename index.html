@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="PhishGuard - practical phishing awareness and risk-assessment training tool">
+<title>PhishGuard | Security Awareness</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-shell">
+<aside class="sidebar">
+ <div class="brand"><div class="brand-mark">P</div><div><b>PhishGuard</b><small>SECURITY AWARENESS</small></div></div>
+ <div class="workspace"><span class="live-dot"></span> LOCAL ANALYSIS MODE</div>
+ <nav>
+  <p class="nav-label">WORKSPACE</p>
+  <button class="nav-item active" data-page="overview"><span>▦</span> Overview</button>
+  <button class="nav-item" data-page="url"><span>⌕</span> URL Analyzer</button>
+  <button class="nav-item" data-page="email"><span>✉</span> Email Analyzer</button>
+  <button class="nav-item" data-page="learn"><span>◈</span> Learning Center</button>
+  <button class="nav-item" data-page="quiz"><span>✓</span> Knowledge Check</button>
+  <button class="nav-item" data-page="reports"><span>▤</span> Reports & History</button>
+ </nav>
+ <div class="sidebar-bottom"><div class="shield">◆</div><b>Think before you click.</b><p>Pause. Inspect. Verify.</p><small>PHISHGUARD • DEMO BUILD 1.0</small></div>
+</aside>
+<main class="main">
+ <header class="topbar"><div><span class="eyebrow">SECURITY OPERATIONS / AWARENESS</span><h1 id="page-title">Overview</h1></div><div class="top-actions"><span class="mode-pill"><i></i> Demo environment</span><div class="avatar">PG</div></div></header>
+ <section class="page active" id="page-overview">
+  <div class="hero"><div><span class="hero-kicker">HUMAN-FIRST CYBER DEFENCE</span><h2>Make every click<br><em>a conscious decision.</em></h2><p>Understand phishing signals, assess suspicious content and build safer digital habits with practical, explainable checks.</p><div class="hero-actions"><button class="btn primary" data-go="url">Analyze a URL <b>→</b></button><button class="btn ghost" data-go="learn">Explore training</button></div></div><div class="hero-art"><div class="orbit o1"></div><div class="orbit o2"></div><div class="core">盾</div><span class="float-tag tag-a">URL CHECK</span><span class="float-tag tag-b">EMAIL SIGNALS</span><span class="float-tag tag-c">AWARENESS</span></div></div>
+  <div class="section-head"><div><span class="eyebrow">YOUR WORKSPACE</span><h3>Security snapshot</h3></div><span class="muted">Updates as you use the tools</span></div>
+  <div class="stats"><article class="stat"><div class="stat-icon blue">⌕</div><span>URL analyses</span><strong id="stat-url">0</strong><small>Local heuristic checks</small></article><article class="stat"><div class="stat-icon purple">✉</div><span>Email analyses</span><strong id="stat-email">0</strong><small>Content-based indicators</small></article><article class="stat"><div class="stat-icon green">✓</div><span>Quiz best score</span><strong id="stat-quiz">—</strong><small>Knowledge assessment</small></article><article class="stat"><div class="stat-icon orange">▤</div><span>Reports created</span><strong id="stat-reports">0</strong><small>Exportable JSON reports</small></article></div>
+  <div class="grid-two"><article class="panel"><div class="panel-head"><div><span class="eyebrow">QUICK ACTIONS</span><h3>Start an assessment</h3></div><span class="panel-symbol">↗</span></div><button class="quick-row" data-go="url"><span class="quick-icon">⌕</span><span><b>Check a suspicious URL</b><small>Inspect URL structure and common risk signals.</small></span><b class="arrow">→</b></button><button class="quick-row" data-go="email"><span class="quick-icon">✉</span><span><b>Review an email</b><small>Look for urgency, impersonation and unsafe requests.</small></span><b class="arrow">→</b></button><button class="quick-row" data-go="quiz"><span class="quick-icon">✓</span><span><b>Test your awareness</b><small>Practice identifying common phishing tactics.</small></span><b class="arrow">→</b></button></article>
+  <article class="panel notice"><div class="panel-head"><div><span class="eyebrow">IMPORTANT</span><h3>Know what this tool can do</h3></div><span class="notice-icon">i</span></div><p>PhishGuard performs <b>local, rule-based checks</b> in your browser. It does not visit submitted websites, submit forms, or contact a threat-intelligence service.</p><p>A low-risk result is <b>not proof that a website is safe</b>. Verify important requests through a trusted channel.</p><div class="notice-foot">Privacy-first demo · No credentials collected</div></article></div>
+ </section>
+ <section class="page" id="page-url">
+  <div class="intro"><span class="eyebrow">URL INTELLIGENCE / RULE-BASED</span><h2>URL risk analyzer</h2><p>Inspect a link for common phishing indicators without opening the destination.</p></div>
+  <div class="panel analyzer"><label for="url-input">Website URL</label><div class="input-line"><input id="url-input" type="text" placeholder="https://example.com/login" autocomplete="off"><button class="btn primary" id="url-scan">Analyze URL <span>→</span></button></div><div class="helper">Use a URL you are authorized to assess. Do not enter passwords or sensitive information.</div><div id="url-result" class="result hidden" aria-live="polite"></div></div>
+  <div class="grid-two lower"><article class="panel"><h3>What gets checked?</h3><ul class="check-list"><li>HTTPS scheme and URL structure</li><li>IP-address hostnames and unusual ports</li><li>Misleading @ symbols and punycode</li><li>Known URL shortener domains</li><li>Suspicious words and unusually long URLs</li></ul></article><article class="panel"><h3>Safe handling</h3><p class="muted">The analyzer parses the text locally. It does not resolve DNS, follow redirects, download content or test the remote server.</p><p class="muted">For production use, add an approved reputation API, server-side rate limiting, privacy controls and analyst review.</p></article></div>
+ </section>
+ <section class="page" id="page-email">
+  <div class="intro"><span class="eyebrow">MESSAGE TRIAGE / CONTENT REVIEW</span><h2>Email warning-sign analyzer</h2><p>Review message text for common social-engineering patterns.</p></div>
+  <div class="panel analyzer"><div class="form-grid"><div><label for="sender">Sender address (optional)</label><input id="sender" placeholder="security@example.com"></div><div><label for="subject">Email subject</label><input id="subject" placeholder="Urgent: verify your account"></div></div><label for="email-body">Message content</label><textarea id="email-body" rows="7" placeholder="Paste the email text here. Remove personal or confidential information first."></textarea><div class="input-line end"><span class="helper">Analysis runs in this browser only.</span><button class="btn primary" id="email-scan">Analyze message →</button></div><div id="email-result" class="result hidden" aria-live="polite"></div></div>
+  <div class="panel lower"><h3>Never share</h3><p class="muted">Do not paste passwords, OTPs, recovery codes, financial details or confidential business data into this demo.</p></div>
+ </section>
+ <section class="page" id="page-learn">
+  <div class="intro"><span class="eyebrow">LEARNING CENTER / FIELD GUIDE</span><h2>Recognize the manipulation.</h2><p>Phishing is a social-engineering attack that tries to make people reveal information, transfer money or open a harmful link.</p></div>
+  <div class="learning-grid">
+   <article class="learn-card"><span class="learn-number">01 / SIGNAL</span><div class="learn-icon">⏱</div><h3>Artificial urgency</h3><p>Messages claim your account will be blocked or a payment will fail unless you act immediately.</p><div class="tip">Action: Pause and contact the organization using its official app or known number.</div></article>
+   <article class="learn-card"><span class="learn-number">02 / IDENTITY</span><div class="learn-icon">♙</div><h3>Sender impersonation</h3><p>Attackers use lookalike domains, display-name tricks or compromised accounts.</p><div class="tip">Action: Inspect the full sender address, not only the display name.</div></article>
+   <article class="learn-card"><span class="learn-number">03 / LINK</span><div class="learn-icon">↗</div><h3>Deceptive links</h3><p>A link's visible text may not match its destination. Shorteners can hide the final URL.</p><div class="tip">Action: Navigate to the official website yourself instead of using the message link.</div></article>
+   <article class="learn-card"><span class="learn-number">04 / REQUEST</span><div class="learn-icon">▣</div><h3>Credential harvesting</h3><p>Fake login pages ask for passwords, OTPs or recovery codes.</p><div class="tip">Action: Never share OTPs. Use MFA and report suspicious login prompts.</div></article>
+   <article class="learn-card"><span class="learn-number">05 / ATTACHMENT</span><div class="learn-icon">⌑</div><h3>Unexpected files</h3><p>Unexpected invoices, archives or documents may contain malicious content.</p><div class="tip">Action: Verify with the sender through a separate trusted channel before opening.</div></article>
+   <article class="learn-card"><span class="learn-number">06 / RESPONSE</span><div class="learn-icon">⚑</div><h3>Report, don't engage</h3><p>Do not reply, click, download or forward suspicious content widely.</p><div class="tip">Action: Use your organization's phishing-report process and preserve evidence.</div></article>
+  </div>
+  <div class="panel lower"><h3>Simple response playbook</h3><div class="steps"><div><b>01</b><span>Stop interacting</span></div><div><b>02</b><span>Verify independently</span></div><div><b>03</b><span>Report to IT/security</span></div><div><b>04</b><span>Change credentials if exposed</span></div></div></div>
+ </section>
+ <section class="page" id="page-quiz">
+  <div class="intro"><span class="eyebrow">KNOWLEDGE CHECK / 5 QUESTIONS</span><h2>Can you spot the phish?</h2><p>Choose the safest response. Your score is calculated locally.</p></div>
+  <div class="panel quiz-panel"><div class="quiz-top"><span id="quiz-progress">QUESTION 1 OF 5</span><span id="quiz-score">Score: 0</span></div><div class="progress"><span id="progress-bar"></span></div><h3 id="question"></h3><div id="answers" class="answers"></div><div id="quiz-feedback" class="feedback hidden"></div><div class="quiz-actions"><button class="btn ghost" id="quiz-restart">Restart</button><button class="btn primary" id="quiz-next" disabled>Next question →</button></div></div>
+ </section>
+ <section class="page" id="page-reports">
+  <div class="intro"><span class="eyebrow">AUDIT TRAIL / LOCAL SESSION</span><h2>Reports & history</h2><p>Review analyses performed in this browser session and export a report.</p></div>
+  <div class="panel"><div class="panel-head"><div><h3>Assessment history</h3><p class="muted">History is stored only for this open session.</p></div><button class="btn ghost small" id="clear-history">Clear history</button></div><div id="history-list" class="history-empty">No assessments yet. Run a URL or email analysis to create an entry.</div><div class="report-actions"><button class="btn primary" id="export-report">Export JSON report ↓</button><button class="btn ghost" id="print-report">Print summary</button></div></div>
+ </section>
+ <footer>PHISHGUARD <span>•</span> Educational security tool. Not a substitute for enterprise threat intelligence or professional incident response.</footer>
+</main></div><script src="script.js"></script></body></html>
